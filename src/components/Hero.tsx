@@ -43,19 +43,9 @@ const Hero = () => {
               {isTypingDone && <div className="space-y-4 animate-fade-in">
                    <div className="font-mono text-primary">$ cat character_profile.dat</div>
                    <div className="space-y-2">
-                     <div className="flex items-center gap-3 mb-3">
-                       <div className="level-badge">
-                         <span className="text-lime-500">Software Engineer</span>
-                       </div>
-                       <div className="achievement-badge">
-                         <span>2x Hackathon Winner</span>
-                       </div>
-                     </div>
                      <p className="text-lg md:text-xl text-muted-foreground font-mono leading-relaxed">
-                       <span className="text-accent">Class:</span> Computer Science @ Northwestern University<br />
-                       <span className="text-secondary">Specialization:</span> AI Development • Full-Stack Engineering<br />
-                       <span className="text-primary">Mission:</span> Building impactful software with cutting-edge technology<br />
-                       <span className="text-accent">GPA:</span> 3.83 • <span className="text-secondary">Graduation:</span> 2027
+                       <span className="text-accent">Role:</span> Software Engineer<br />
+                       <span className="text-secondary">Passion:</span> Building impactful software with cutting-edge technology
                      </p>
                    </div>
                  </div>}

@@ -18,9 +18,9 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
             {/* Left Column - Text */}
-            <div className="space-y-6">
+            <div className="lg:col-span-2 space-y-6">
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-primary">
                   Full-Stack Developer & AI Enthusiast
@@ -51,54 +51,39 @@ const About = () => {
               </div>
             </div>
 
-            {/* Right Column - Education Card */}
-            <div className="space-y-6">
-              <Card className="p-6 bg-gradient-card border-primary/20 hover:border-primary/40 transition-smooth neon-hover">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary/20 rounded-lg">
-                    <GraduationCap className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-2">Northwestern University</h3>
-                    <p className="text-muted-foreground mb-3">
-                      Bachelor of Computer Science | Minor in Economics
-                    </p>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Calendar className="h-4 w-4" />
-                        <span>Expected Graduation: June 2027</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <MapPin className="h-4 w-4" />
-                        <span>Evanston, IL</span>
-                      </div>
-                      <div className="pt-2">
-                        <span className="text-lg font-semibold text-primary">GPA: 3.83</span>
+            {/* Right Column - CLI-Style Education Panel */}
+            <div className="lg:col-span-1">
+              <div className="bg-surface-elevated rounded-lg border border-muted shadow-card">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-muted">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <span className="ml-4 text-sm text-muted-foreground font-mono">~/education</span>
+                </div>
+                <div className="p-4 text-left">
+                  <div className="font-mono text-primary mb-2">$ cat university.dat</div>
+                  <div className="space-y-3 font-mono text-sm">
+                    <div>
+                      <span className="text-accent">Institution:</span> Northwestern University<br />
+                      <span className="text-secondary">Degree:</span> Computer Science<br />
+                      <span className="text-primary">Minor:</span> Economics<br />
+                      <span className="text-accent">GPA:</span> 3.83<br />
+                      <span className="text-secondary">Graduation:</span> 2027
+                    </div>
+                    
+                    <div className="pt-2">
+                      <div className="font-mono text-primary mb-2">$ ls coursework/</div>
+                      <div className="space-y-1 text-muted-foreground">
+                        <div>• Machine Learning</div>
+                        <div>• Data Structures & Algorithms</div>
+                        <div>• Computer Systems</div>
+                        <div>• Software Design</div>
+                        <div>• Programming Languages</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="mt-4 pt-4 border-t border-border">
-                  <h4 className="font-semibold mb-2 text-foreground">Relevant Coursework</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "Machine Learning",
-                      "Data Structures & Algorithms", 
-                      "Computer Systems",
-                      "Software Design",
-                      "Programming Languages"
-                    ].map((course) => (
-                      <span 
-                        key={course}
-                        className="px-3 py-1 bg-surface text-xs rounded-full border border-border text-muted-foreground"
-                      >
-                        {course}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
