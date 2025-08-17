@@ -24,80 +24,41 @@ const Hero = () => {
       <div className="container px-6 text-center z-10 mx-0 py-0 my-[25px]">
         <div className="max-w-5xl mx-auto my-[25px]">
           {/* Terminal Window */}
-          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 mx-auto max-w-6xl">
+          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 mx-auto max-w-4xl">
             <div className="flex items-center gap-2 px-4 py-3 border-b border-muted">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
               <span className="ml-4 text-sm text-muted-foreground font-mono">~/portfolio</span>
             </div>
-            <div className="grid lg:grid-cols-3 gap-6 p-6">
-              {/* Main Terminal Content */}
-              <div className="lg:col-span-2 text-left">
-                <div className="font-mono text-primary mb-2">$ whoami</div>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-                  <span className="font-mono text-foreground">
-                    {displayedText}
-                    {!isTypingDone && <span className="typing-cursor"></span>}
-                  </span>
-                </h1>
-                
-                {isTypingDone && <div className="space-y-4 animate-fade-in">
-                     <div className="font-mono text-primary">$ cat character_profile.dat</div>
-                     <div className="space-y-2">
-                       <p className="text-lg md:text-xl text-muted-foreground font-mono leading-relaxed">
-                         <span className="text-accent">Role:</span> Software Engineer
-                       </p>
+            <div className="p-6 text-left">
+              <div className="font-mono text-primary mb-2">$ whoami</div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+                <span className="font-mono text-foreground">
+                  {displayedText}
+                  {!isTypingDone && <span className="typing-cursor"></span>}
+                </span>
+              </h1>
+              
+              {isTypingDone && <div className="space-y-4 animate-fade-in">
+                   <div className="font-mono text-primary">$ cat character_profile.dat</div>
+                   <div className="space-y-2">
+                     <div className="flex items-center gap-3 mb-3">
+                       <div className="level-badge">
+                         <span className="text-lime-500">Software Engineer</span>
+                       </div>
+                       <div className="achievement-badge">
+                         <span>2x Hackathon Winner</span>
+                       </div>
                      </div>
-                   </div>}
-              </div>
-
-              {/* IDE-style Side Panel */}
-              {isTypingDone && <div className="lg:col-span-1 animate-fade-in">
-                <div className="bg-surface-elevated border-l border-muted h-full">
-                  {/* IDE Panel Header */}
-                  <div className="bg-surface border-b border-muted px-3 py-2">
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Education</span>
-                  </div>
-                  
-                  {/* Card Content */}
-                  <div className="p-4 space-y-4">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                          <span className="text-primary font-bold text-sm">NU</span>
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-sm">Northwestern University</h3>
-                          <p className="text-xs text-muted-foreground">Computer Science • Economics Minor</p>
-                        </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div>
-                          <span className="text-muted-foreground">GPA</span>
-                          <p className="font-medium">3.83</p>
-                        </div>
-                        <div>
-                          <span className="text-muted-foreground">Graduation</span>
-                          <p className="font-medium">2027</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Coursework</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {["Machine Learning", "Data Structures", "Computer Systems", "Software Design", "Programming Languages"].map((course) => (
-                          <span key={course} className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-primary/10 text-primary border border-primary/20">
-                            {course}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>}
+                     <p className="text-lg md:text-xl text-muted-foreground font-mono leading-relaxed">
+                       <span className="text-accent">Class:</span> Computer Science @ Northwestern University<br />
+                       <span className="text-secondary">Specialization:</span> AI Development • Full-Stack Engineering<br />
+                       <span className="text-primary">Mission:</span> Building impactful software with cutting-edge technology<br />
+                       <span className="text-accent">GPA:</span> 3.83 • <span className="text-secondary">Graduation:</span> 2027
+                     </p>
+                   </div>
+                 </div>}
             </div>
           </div>
 
