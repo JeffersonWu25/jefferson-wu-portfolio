@@ -34,7 +34,7 @@ const Hero = () => {
             
             <div className="grid lg:grid-cols-3 min-h-[400px]">
               {/* Terminal Content */}
-              <div className="lg:col-span-2 p-4 text-left">
+              <div className="lg:col-span-2 p-3 text-left">
                 <div className="font-mono text-primary mb-2">$ whoami</div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
                   <span className="font-mono text-foreground">
