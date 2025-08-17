@@ -21,7 +21,7 @@ const Hero = () => {
     return () => clearTimeout(startTyping);
   }, []);
   return <section className="py-8 md:py-12 bg-gradient-hero particles relative flex items-center justify-center">
-      <div className="container px-6 text-center z-10">
+      <div className="container px-6 text-center z-10 my-[100px]">
         <div className="max-w-7xl mx-auto">
           {/* Connected Terminal and Side Panel */}
           <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-6 overflow-hidden">
@@ -52,7 +52,7 @@ const Hero = () => {
               </div>
 
               {/* Vertical Separator */}
-              <div className="hidden lg:block absolute lg:left-2/3 top-0 bottom-0 w-px bg-white/20"></div>
+              
 
               {/* University Side Panel */}
               {isTypingDone && <div className="lg:col-span-1 p-4 bg-surface-elevated border-l border-white/10 animate-fade-in">
