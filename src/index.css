@@ -91,7 +91,7 @@
   
   /* Project Tile */
   .project-tile {
-    @apply group relative bg-surface border border-border transition-all duration-300;
+    @apply relative bg-surface border border-border transition-all duration-300;
     box-shadow: var(--shadow-subtle);
   }
   
@@ -103,7 +103,7 @@
   
   /* Work Tile */
   .work-tile {
-    @apply group relative bg-card border border-border p-8 transition-all duration-300;
+    @apply relative bg-card border border-border p-8 transition-all duration-300;
     box-shadow: var(--shadow-subtle);
   }
   
