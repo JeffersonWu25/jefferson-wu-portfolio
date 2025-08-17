@@ -23,82 +23,87 @@ const Hero = () => {
   return <section className="py-12 md:py-16 bg-gradient-hero particles relative flex items-center justify-center">
       <div className="container px-6 text-center z-10 mx-0 py-0 my-[25px]">
         <div className="max-w-7xl mx-auto my-[25px]">
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            {/* Terminal Window */}
-            <div className="lg:col-span-2 bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 lg:mb-0">
+          {/* Connected Terminal and Side Panel */}
+          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 overflow-hidden">
             <div className="flex items-center gap-2 px-4 py-3 border-b border-muted">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
               <span className="ml-4 text-sm text-muted-foreground font-mono">~/portfolio</span>
             </div>
-            <div className="p-6 text-left">
-              <div className="font-mono text-primary mb-2">$ whoami</div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-                <span className="font-mono text-foreground">
-                  {displayedText}
-                  {!isTypingDone && <span className="typing-cursor"></span>}
-                </span>
-              </h1>
-              
-              {isTypingDone && <div className="space-y-4 animate-fade-in">
-                   <div className="font-mono text-primary">$ cat character_profile.dat</div>
-                   <div className="space-y-2">
-                     <div className="font-mono text-foreground">Software Engineer</div>
-                   </div>
-                 </div>}
-            </div>
-          </div>
+            
+            <div className="grid lg:grid-cols-3 min-h-[400px]">
+              {/* Terminal Content */}
+              <div className="lg:col-span-2 p-6 text-left">
+                <div className="font-mono text-primary mb-2">$ whoami</div>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+                  <span className="font-mono text-foreground">
+                    {displayedText}
+                    {!isTypingDone && <span className="typing-cursor"></span>}
+                  </span>
+                </h1>
+                
+                {isTypingDone && <div className="space-y-4 animate-fade-in">
+                     <div className="font-mono text-primary">$ cat character_profile.dat</div>
+                     <div className="space-y-2">
+                       <div className="font-mono text-foreground">Software Engineer</div>
+                     </div>
+                   </div>}
+              </div>
 
-          {/* University Side Panel */}
-          {isTypingDone && <div className="lg:col-span-1 animate-fade-in">
-            <div className="bg-surface-elevated rounded-lg border border-muted shadow-card p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <GraduationCap className="h-5 w-5 text-primary" />
+              {/* Vertical Separator */}
+              <div className="hidden lg:block absolute lg:left-2/3 top-0 bottom-0 w-px bg-white/20"></div>
+
+              {/* University Side Panel */}
+              {isTypingDone && <div className="lg:col-span-1 p-6 bg-surface-elevated border-l border-white/10 animate-fade-in">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                      <GraduationCap className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-1">Northwestern University</h3>
+                      <p className="text-sm text-muted-foreground">Bachelor of Computer Science | Minor in Economics</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="h-4 w-4" />
+                      <span>Expected Graduation: June 2027</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4" />
+                      <span>Evanston, IL</span>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <span className="text-2xl font-bold text-primary">GPA: 3.83</span>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-3 text-foreground">Relevant Coursework</h4>
+                    <div className="grid grid-cols-1 gap-2">
+                      {[
+                        "Machine Learning",
+                        "Data Structures & Algorithms", 
+                        "Computer Systems",
+                        "Software Design",
+                        "Programming Languages"
+                      ].map((course) => (
+                        <span 
+                          key={course}
+                          className="px-3 py-2 bg-muted/50 text-sm rounded border border-border text-muted-foreground"
+                        >
+                          {course}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground">Northwestern University</h3>
-                  <p className="text-sm text-muted-foreground">Bachelor of Computer Science | Minor in Economics</p>
-                </div>
-              </div>
-              
-              <div className="space-y-3 mb-4">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Calendar className="h-4 w-4" />
-                  <span>Expected Graduation: June 2027</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4" />
-                  <span>Evanston, IL</span>
-                </div>
-              </div>
-              
-              <div className="mb-4">
-                <span className="text-2xl font-bold text-primary">GPA: 3.83</span>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold mb-3 text-foreground">Relevant Coursework</h4>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Machine Learning",
-                    "Data Structures & Algorithms", 
-                    "Computer Systems",
-                    "Software Design",
-                    "Programming Languages"
-                  ].map((course) => (
-                    <span 
-                      key={course}
-                      className="px-3 py-1 bg-muted text-xs rounded-full border border-border text-muted-foreground"
-                    >
-                      {course}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </div>}
             </div>
-          </div>}
           </div>
 
           {/* Action Items */}
