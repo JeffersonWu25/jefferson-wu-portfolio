@@ -47,43 +47,60 @@ const Hero = () => {
               </h1>
               
               {isTypingDone && (
-                <div className="space-y-3 animate-fade-in">
-                  <div className="font-mono text-primary">$ cat about.txt</div>
-                  <p className="text-lg md:text-xl text-muted-foreground font-mono leading-relaxed">
-                    Computer Science @ Northwestern University<br />
-                    Hackathon Winner • AI Enthusiast • Full-Stack Developer<br />
-                    Building impactful software with cutting-edge technology
-                  </p>
-                </div>
+                 <div className="space-y-4 animate-fade-in">
+                   <div className="font-mono text-primary">$ cat character_profile.dat</div>
+                   <div className="space-y-2">
+                     <div className="flex items-center gap-3 mb-3">
+                       <div className="level-badge">
+                         <span className="text-primary-foreground">Level: Software Engineer</span>
+                       </div>
+                       <div className="achievement-badge">
+                         <span>2x Hackathon Winner</span>
+                       </div>
+                     </div>
+                     <p className="text-lg md:text-xl text-muted-foreground font-mono leading-relaxed">
+                       <span className="text-accent">Class:</span> Computer Science @ Northwestern University<br />
+                       <span className="text-secondary">Specialization:</span> AI Development • Full-Stack Engineering<br />
+                       <span className="text-primary">Mission:</span> Building impactful software with cutting-edge technology<br />
+                       <span className="text-accent">GPA:</span> 3.83 • <span className="text-secondary">Graduation:</span> 2027
+                     </p>
+                   </div>
+                 </div>
               )}
             </div>
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Items */}
           {isTypingDone && (
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold"
+                className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold font-mono"
               >
                 <ExternalLink className="mr-2 h-5 w-5" />
-                View My Work
+                [Start Quest]
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary/30 hover:border-primary hover:bg-primary/10 hover:shadow-neon transition-smooth"
+                className="border-primary/30 hover:border-primary hover:bg-primary/10 hover:shadow-neon transition-smooth font-mono"
+                asChild
               >
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
+                <a href="https://github.com/JeffersonWu25" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-5 w-5" />
+                  [GitHub Repository]
+                </a>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth"
+                className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth font-mono"
+                asChild
               >
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
+                <a href="https://linkedin.com/in/jwu6" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  [Network]
+                </a>
               </Button>
             </div>
           )}

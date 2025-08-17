@@ -16,11 +16,11 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
+    { label: "Profile", href: "#about" },
+    { label: "Quests", href: "#experience" },
+    { label: "Achievements", href: "#projects" },
+    { label: "Skill Tree", href: "#skills" },
+    { label: "Inventory", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -39,22 +39,25 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
+          {/* Game Logo */}
+          <div className="flex items-center space-x-2">
+            <div className="level-badge">
+              <span className="text-primary-foreground">LVL</span>
+            </div>
             <span className="text-xl font-bold font-mono">
-              <span className="text-primary">{"<"}</span>
-              <span className="text-foreground">JW</span>
-              <span className="text-primary">{"/>"}</span>
+              <span className="text-primary">{"["}</span>
+              <span className="text-foreground">Jefferson Wu</span>
+              <span className="text-primary">{"]"}</span>
             </span>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Game Menu Navigation */}
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="game-menu-btn"
               >
                 {item.label}
               </button>
