@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, ExternalLink } from "lucide-react";
-
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [isTypingDone, setIsTypingDone] = useState(false);
   const fullText = "Hello, I'm Jefferson Wu";
-
   useEffect(() => {
     let currentIndex = 0;
     const typingSpeed = 100;
-
     const typeText = () => {
       if (currentIndex < fullText.length) {
         setDisplayedText(fullText.slice(0, currentIndex + 1));
@@ -20,13 +17,10 @@ const Hero = () => {
         setIsTypingDone(true);
       }
     };
-
     const startTyping = setTimeout(typeText, 500);
     return () => clearTimeout(startTyping);
   }, []);
-
-  return (
-    <section className="min-h-screen bg-gradient-hero particles relative flex items-center justify-center">
+  return <section className="min-h-screen bg-gradient-hero particles relative flex items-center justify-center">
       <div className="container mx-auto px-6 text-center z-10">
         <div className="max-w-4xl mx-auto">
           {/* Terminal Window */}
@@ -46,13 +40,12 @@ const Hero = () => {
                 </span>
               </h1>
               
-              {isTypingDone && (
-                 <div className="space-y-4 animate-fade-in">
+              {isTypingDone && <div className="space-y-4 animate-fade-in">
                    <div className="font-mono text-primary">$ cat character_profile.dat</div>
                    <div className="space-y-2">
                      <div className="flex items-center gap-3 mb-3">
                        <div className="level-badge">
-                         <span className="text-primary-foreground">Level: Software Engineer</span>
+                         <span className="text-lime-500">Software Engineer</span>
                        </div>
                        <div className="achievement-badge">
                          <span>2x Hackathon Winner</span>
@@ -65,45 +58,29 @@ const Hero = () => {
                        <span className="text-accent">GPA:</span> 3.83 • <span className="text-secondary">Graduation:</span> 2027
                      </p>
                    </div>
-                 </div>
-              )}
+                 </div>}
             </div>
           </div>
 
           {/* Action Items */}
-          {isTypingDone && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-              <Button 
-                size="lg" 
-                className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold font-mono"
-              >
+          {isTypingDone && <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+              <Button size="lg" className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold font-mono">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 [Start Quest]
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-primary/30 hover:border-primary hover:bg-primary/10 hover:shadow-neon transition-smooth font-mono"
-                asChild
-              >
+              <Button variant="outline" size="lg" className="border-primary/30 hover:border-primary hover:bg-primary/10 hover:shadow-neon transition-smooth font-mono" asChild>
                 <a href="https://github.com/JeffersonWu25" target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-5 w-5" />
                   [GitHub Repository]
                 </a>
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth font-mono"
-                asChild
-              >
+              <Button variant="outline" size="lg" className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth font-mono" asChild>
                 <a href="https://linkedin.com/in/jwu6" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="mr-2 h-5 w-5" />
                   [Network]
                 </a>
               </Button>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
 
@@ -114,8 +91,6 @@ const Hero = () => {
         <div className="absolute bottom-32 left-1/4 w-3 h-3 bg-accent rounded-full animate-bounce"></div>
         <div className="absolute bottom-20 right-1/3 w-2 h-2 bg-primary-glow rounded-full animate-ping"></div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
