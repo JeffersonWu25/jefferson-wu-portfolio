@@ -52,26 +52,48 @@ const Hero = () => {
                    </div>}
               </div>
 
-              {/* University Info Side Panel */}
+              {/* IDE-style Side Panel */}
               {isTypingDone && <div className="lg:col-span-1 animate-fade-in">
-                <div className="bg-surface rounded-lg border border-muted p-4">
-                  <div className="font-mono text-primary mb-2">$ cat university.dat</div>
-                  <div className="space-y-1 font-mono text-sm text-muted-foreground">
-                    <div><span className="text-accent">Institution:</span> Northwestern University</div>
-                    <div><span className="text-secondary">Degree:</span> Computer Science</div>
-                    <div><span className="text-primary">Minor:</span> Economics</div>
-                    <div><span className="text-accent">GPA:</span> 3.83</div>
-                    <div><span className="text-secondary">Graduation:</span> 2027</div>
+                <div className="bg-surface-elevated border-l border-muted h-full">
+                  {/* IDE Panel Header */}
+                  <div className="bg-surface border-b border-muted px-3 py-2">
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Education</span>
                   </div>
                   
-                  <div className="mt-4">
-                    <div className="font-mono text-primary mb-2 text-sm">$ ls coursework/</div>
-                    <div className="space-y-1 text-xs text-muted-foreground font-mono">
-                      <div>• Machine Learning</div>
-                      <div>• Data Structures & Algorithms</div>
-                      <div>• Computer Systems</div>
-                      <div>• Software Design</div>
-                      <div>• Programming Languages</div>
+                  {/* Card Content */}
+                  <div className="p-4 space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                          <span className="text-primary font-bold text-sm">NU</span>
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-sm">Northwestern University</h3>
+                          <p className="text-xs text-muted-foreground">Computer Science • Economics Minor</p>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <span className="text-muted-foreground">GPA</span>
+                          <p className="font-medium">3.83</p>
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground">Graduation</span>
+                          <p className="font-medium">2027</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Coursework</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {["Machine Learning", "Data Structures", "Computer Systems", "Software Design", "Programming Languages"].map((course) => (
+                          <span key={course} className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-primary/10 text-primary border border-primary/20">
+                            {course}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
