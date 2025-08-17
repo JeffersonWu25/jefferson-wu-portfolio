@@ -34,7 +34,7 @@ const Hero = () => {
             
             <div className="grid lg:grid-cols-3 min-h-[400px]">
               {/* Terminal Content */}
-              <div className="lg:col-span-2 p-6 text-left">
+              <div className="lg:col-span-2 p-6 text-left mx-[9px]">
                 <div className="font-mono text-primary mb-2">$ whoami</div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
                   <span className="font-mono text-foreground">
@@ -46,7 +46,7 @@ const Hero = () => {
                 {isTypingDone && <div className="space-y-4 animate-fade-in">
                      <div className="font-mono text-primary">$ cat character_profile.dat</div>
                      <div className="space-y-2">
-                       <div className="font-mono text-foreground">Software Engineer</div>
+                       
                      </div>
                    </div>}
               </div>
@@ -79,28 +79,10 @@ const Hero = () => {
                   </div>
                   
                   <div>
-                    <span className="text-2xl font-bold text-primary">GPA: 3.83</span>
+                    
                   </div>
                   
-                  <div>
-                    <h4 className="font-semibold mb-3 text-foreground">Relevant Coursework</h4>
-                    <div className="grid grid-cols-1 gap-2">
-                      {[
-                        "Machine Learning",
-                        "Data Structures & Algorithms", 
-                        "Computer Systems",
-                        "Software Design",
-                        "Programming Languages"
-                      ].map((course) => (
-                        <span 
-                          key={course}
-                          className="px-3 py-2 bg-muted/50 text-sm rounded border border-border text-muted-foreground"
-                        >
-                          {course}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  
                 </div>
               </div>}
             </div>
