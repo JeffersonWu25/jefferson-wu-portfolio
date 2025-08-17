@@ -20,11 +20,11 @@ const Hero = () => {
     const startTyping = setTimeout(typeText, 500);
     return () => clearTimeout(startTyping);
   }, []);
-  return <section className="min-h-screen bg-gradient-hero particles relative flex items-center justify-center">
+  return <section className="py-12 md:py-16 bg-gradient-hero particles relative flex items-center justify-center">
       <div className="container mx-auto px-6 text-center z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Terminal Window */}
-          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 mx-auto max-w-3xl">
+          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 mx-auto max-w-4xl">
             <div className="flex items-center gap-2 px-4 py-3 border-b border-muted">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
