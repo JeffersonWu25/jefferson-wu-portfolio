@@ -20,11 +20,11 @@ const Hero = () => {
     const startTyping = setTimeout(typeText, 500);
     return () => clearTimeout(startTyping);
   }, []);
-  return <section className="py-12 md:py-16 bg-gradient-hero particles relative flex items-center justify-center">
-      <div className="container px-6 text-center z-10 mx-0 py-0 my-[25px]">
-        <div className="max-w-7xl mx-auto my-[25px]">
+  return <section className="py-8 md:py-12 bg-gradient-hero particles relative flex items-center justify-center">
+      <div className="container px-6 text-center z-10">
+        <div className="max-w-7xl mx-auto">
           {/* Connected Terminal and Side Panel */}
-          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 overflow-hidden">
+          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-6 overflow-hidden">
             <div className="flex items-center gap-2 px-4 py-3 border-b border-muted">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -34,7 +34,7 @@ const Hero = () => {
             
             <div className="grid lg:grid-cols-3 min-h-[400px]">
               {/* Terminal Content */}
-              <div className="lg:col-span-2 p-6 text-left mx-[9px]">
+              <div className="lg:col-span-2 p-4 text-left">
                 <div className="font-mono text-primary mb-2">$ whoami</div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
                   <span className="font-mono text-foreground">
@@ -55,7 +55,7 @@ const Hero = () => {
               <div className="hidden lg:block absolute lg:left-2/3 top-0 bottom-0 w-px bg-white/20"></div>
 
               {/* University Side Panel */}
-              {isTypingDone && <div className="lg:col-span-1 p-6 bg-surface-elevated border-l border-white/10 animate-fade-in">
+              {isTypingDone && <div className="lg:col-span-1 p-4 bg-surface-elevated border-l border-white/10 animate-fade-in">
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
@@ -89,7 +89,7 @@ const Hero = () => {
           </div>
 
           {/* Action Items */}
-          {isTypingDone && <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mt-8">
+          {isTypingDone && <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mt-6">
               <Button size="lg" className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold font-mono">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 [Start Quest]
