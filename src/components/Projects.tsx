@@ -1,7 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, Trophy, Search, Chrome, Leaf } from "lucide-react";
+import { Github, ExternalLink, Trophy, Search, Chrome, Leaf, Play } from "lucide-react";
+import { useState } from "react";
 
 const Projects = () => {
   const projects = [
@@ -13,7 +14,7 @@ const Projects = () => {
       tech: ["React", "Supabase", "OCR", "Gemini", "TypeScript"],
       achievements: ["🏆 Hackathon Overall Winner", "10,000+ Reviews Processed"],
       github: "https://github.com/JeffersonWu25/course-search",
-      demo: "#",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
       gradient: "bg-gradient-primary"
     },
     {
@@ -24,7 +25,7 @@ const Projects = () => {
       tech: ["Chrome Extension", "GPT-4 Vision", "FastAPI", "JavaScript"],
       achievements: ["🤖 AI-Powered", "Multimodal Capabilities"],
       github: "https://github.com/JeffersonWu25/ai-assistant",
-      demo: "#",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
       gradient: "bg-gradient-secondary"
     },
     {
@@ -35,10 +36,12 @@ const Projects = () => {
       tech: ["React", "Supabase", "Node.js", "PostgreSQL"],
       achievements: ["🏆 Hackathon Overall Winner", "♻️ Sustainability Focus"],
       github: "https://github.com/JeffersonWu25/farmconnect",
-      demo: "#",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with actual video URL
       gradient: "bg-gradient-card"
     }
   ];
+
+  const [selectedProject, setSelectedProject] = useState(projects[0]);
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -56,14 +59,85 @@ const Projects = () => {
             </p>
           </div>
 
+          {/* Video Demo Card */}
+          <Card className="mb-12 overflow-hidden bg-gradient-card border-border">
+            <div className="p-6 lg:p-8">
+              <div className="grid lg:grid-cols-5 gap-6">
+                {/* Video Player */}
+                <div className="lg:col-span-3">
+                  <div className="aspect-video bg-surface rounded-lg overflow-hidden">
+                    <iframe
+                      src={selectedProject.videoUrl}
+                      title={`${selectedProject.title} Demo`}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+
+                {/* Project Info */}
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-primary/20 rounded-lg">
+                      {selectedProject.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold">{selectedProject.title}</h3>
+                      <p className="text-sm text-muted-foreground">Live Demo</p>
+                    </div>
+                  </div>
+
+                  <p className="text-muted-foreground mb-4">
+                    {selectedProject.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {selectedProject.achievements.map((achievement) => (
+                      <Badge 
+                        key={achievement}
+                        variant="secondary" 
+                        className="text-xs bg-secondary/20 text-secondary border-secondary/30"
+                      >
+                        {achievement}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3">
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      className="flex-1 border-primary/30 hover:border-primary hover:bg-primary/10 transition-smooth"
+                      onClick={() => window.open(selectedProject.github, '_blank')}
+                    >
+                      <Github className="mr-2 h-4 w-4" />
+                      View Code
+                    </Button>
+                    <Button 
+                      size="sm"
+                      className="flex-1 bg-primary/20 hover:bg-primary/30 transition-smooth"
+                    >
+                      <Play className="mr-2 h-4 w-4" />
+                      Full Demo
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card 
                 key={project.id}
-                className={`group relative overflow-hidden bg-gradient-card border-border hover:border-primary/40 transition-all duration-300 hover:shadow-neon hover:-translate-y-2 ${
-                  index === 0 ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
+                onClick={() => setSelectedProject(project)}
+                className={`group relative overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-neon hover:-translate-y-2 ${
+                  selectedProject.id === project.id 
+                    ? 'bg-gradient-card border-primary shadow-neon' 
+                    : 'bg-gradient-card border-border hover:border-primary/40'
+                } ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 {/* Gradient Overlay */}
                 <div className={`absolute inset-0 ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity`}></div>
