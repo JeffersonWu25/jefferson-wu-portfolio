@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, ExternalLink, GraduationCap, Calendar } from "lucide-react";
+import profile from "@/assets/profile.jpeg";
+
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [isTypingDone, setIsTypingDone] = useState(false);
-  const fullText = "Hello, I'm Jefferson Wu";
+  const fullText = "Hi! I'm Jefferson Wu";
   useEffect(() => {
     let currentIndex = 0;
     const typingSpeed = 100;
@@ -52,9 +54,8 @@ const Hero = () => {
 
                   {/* Description */}
                   <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                    Computer Science student passionate about creating innovative solutions that make a real impact. 
-                    Hackathon winner specializing in React, Node.js, Python, and AI integration. 
-                    Building production applications serving thousands of users.
+                    Welcome to my website! I'm a Junior at Northwestern University studying Computer Science and Economics. 
+                    I have experience building workflow automation tools, client relationship management platforms and AI-powered applications.
                   </p>
 
                   {/* Quick Stats */}
@@ -70,9 +71,9 @@ const Hero = () => {
                   <div className="absolute -inset-1 bg-gradient-primary rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
                   
                   {/* Image Container */}
-                  <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary transition-colors">
+                  <div className="relative w-76 h-76 md:w-84 md:h-84 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary transition-colors">
                     <img 
-                      src="/profile.jpg" 
+                      src={profile} 
                       alt="Jefferson Wu"
                       className="w-full h-full object-cover"
                     />

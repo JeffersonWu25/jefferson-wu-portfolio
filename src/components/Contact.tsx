@@ -6,8 +6,8 @@ const Contact = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       label: "Email",
-      value: "jwu@northwestern.edu",
-      href: "mailto:jwu@northwestern.edu"
+      value: "jeffersonwu2027@northwestern.edu",
+      href: "mailto:jeffersonwu2027@northwestern.edu"
     },
     {
       icon: <Github className="h-5 w-5" />,
@@ -18,7 +18,7 @@ const Contact = () => {
     {
       icon: <Linkedin className="h-5 w-5" />,
       label: "LinkedIn",
-      value: "/in/jwu6",
+      value: "linkedin.com/in/jwu6",
       href: "https://www.linkedin.com/in/jwu6/"
     }
   ];
