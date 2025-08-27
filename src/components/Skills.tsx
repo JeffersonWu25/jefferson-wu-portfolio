@@ -1,125 +1,89 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, Globe, Brain, Wrench, GitBranch } from "lucide-react";
+import { Code, Database, Globe } from "lucide-react";
+
+type SkillLevel = "Advanced" | "Intermediate" | "Beginner";
+
+interface Skill {
+  name: string;
+  level: SkillLevel;
+}
+
 const Skills = () => {
   const skillCategories = [{
     id: "languages",
     title: "Programming Languages",
     icon: <Code className="h-6 w-6" />,
-    skills: [{
-      name: "Python",
-      level: 90
-    }, {
-      name: "JavaScript",
-      level: 88
-    }, {
-      name: "TypeScript",
-      level: 85
-    }, {
-      name: "Java",
-      level: 82
-    }, {
-      name: "SQL",
-      level: 80
-    }, {
-      name: "C++",
-      level: 75
-    }, {
-      name: "HTML/CSS",
-      level: 90
-    }],
+    skills: [
+      { name: "Python", level: "Advanced" as SkillLevel },
+      { name: "JavaScript", level: "Advanced" as SkillLevel },
+      { name: "TypeScript", level: "Advanced" as SkillLevel },
+      { name: "Java", level: "Intermediate" as SkillLevel },
+      { name: "SQL", level: "Intermediate" as SkillLevel },
+      { name: "C++", level: "Intermediate" as SkillLevel },
+      { name: "C", level: "Beginner" as SkillLevel },
+      { name: "C#", level: "Beginner" as SkillLevel }
+    ],
     gradient: "bg-gradient-primary"
   }, {
     id: "frontend",
     title: "Frontend & UI",
     icon: <Globe className="h-6 w-6" />,
-    skills: [{
-      name: "React",
-      level: 90
-    }, {
-      name: "Next.js",
-      level: 85
-    }, {
-      name: "Tailwind CSS",
-      level: 88
-    }, {
-      name: "Chrome Extensions",
-      level: 80
-    }, {
-      name: "Responsive Design",
-      level: 85
-    }],
+    skills: [
+      { name: "React", level: "Advanced" as SkillLevel },
+      { name: "Next.js", level: "Advanced" as SkillLevel },
+      { name: "Figma", level: "Advanced" as SkillLevel },
+      { name: "HTML/CSS", level: "Intermediate" as SkillLevel },
+      { name: "Tailwind CSS", level: "Intermediate" as SkillLevel }
+    ],
     gradient: "bg-gradient-secondary"
   }, {
     id: "backend",
     title: "Backend & Database",
     icon: <Database className="h-6 w-6" />,
-    skills: [{
-      name: "Node.js",
-      level: 85
-    }, {
-      name: "Express.js",
-      level: 80
-    }, {
-      name: "FastAPI",
-      level: 88
-    }, {
-      name: "PostgreSQL",
-      level: 85
-    }, {
-      name: "Supabase",
-      level: 90
-    }, {
-      name: "Redis",
-      level: 75
-    }],
+    skills: [
+      { name: "Node.js", level: "Advanced" as SkillLevel },
+      { name: "FastAPI", level: "Advanced" as SkillLevel },
+      { name: "Supabase", level: "Advanced" as SkillLevel },
+      { name: "PostgreSQL", level: "Intermediate" as SkillLevel },
+      { name: "Express.js", level: "Intermediate" as SkillLevel },
+      { name: "Redis", level: "Intermediate" as SkillLevel },
+      { name: "Django", level: "Beginner" as SkillLevel }
+    ],
     gradient: "bg-gradient-card"
-  }, {
-    id: "ai-tools",
-    title: "AI & Tools",
-    icon: <Brain className="h-6 w-6" />,
-    skills: [{
-      name: "GPT-4 Vision",
-      level: 85
-    }, {
-      name: "Gemini",
-      level: 80
-    }, {
-      name: "OCR Integration",
-      level: 75
-    }, {
-      name: "Machine Learning",
-      level: 70
-    }],
-    gradient: "bg-gradient-primary"
-  }, {
-    id: "tools",
-    title: "Development Tools",
-    icon: <Wrench className="h-6 w-6" />,
-    skills: [{
-      name: "Git",
-      level: 88
-    }, {
-      name: "Docker",
-      level: 75
-    }, {
-      name: "VS Code",
-      level: 90
-    }, {
-      name: "Postman",
-      level: 80
-    }],
-    gradient: "bg-gradient-secondary"
   }];
-  const getSkillColor = (level: number) => {
-    if (level >= 85) return "text-accent";
-    if (level >= 75) return "text-primary";
-    return "text-secondary";
+
+  const getSkillColor = (level: SkillLevel) => {
+    switch (level) {
+      case "Advanced":
+        return "text-accent";
+      case "Intermediate":
+        return "text-primary";
+      case "Beginner":
+        return "text-secondary";
+    }
   };
-  const getSkillBg = (level: number) => {
-    if (level >= 85) return "bg-accent/20";
-    if (level >= 75) return "bg-primary/20";
-    return "bg-secondary/20";
+
+  const getSkillBg = (level: SkillLevel) => {
+    switch (level) {
+      case "Advanced":
+        return "bg-accent/20";
+      case "Intermediate":
+        return "bg-primary/20";
+      case "Beginner":
+        return "bg-secondary/20";
+    }
+  };
+
+  const getLevelWidth = (level: SkillLevel) => {
+    switch (level) {
+      case "Advanced":
+        return "100%";
+      case "Intermediate":
+        return "66%";
+      case "Beginner":
+        return "33%";
+    }
   };
   return <section id="skills" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -161,15 +125,19 @@ const Skills = () => {
                             {skill.name}
                           </span>
                           <Badge variant="secondary" className={`text-xs ${getSkillBg(skill.level)} ${getSkillColor(skill.level)} border-transparent`}>
-                            {skill.level}%
+                            {skill.level}
                           </Badge>
                         </div>
                         
                         {/* Progress Bar */}
                         <div className="w-full bg-surface rounded-full h-2">
-                          <div className={`h-2 rounded-full transition-all duration-500 group-hover:shadow-neon ${skill.level >= 85 ? 'bg-accent' : skill.level >= 75 ? 'bg-primary' : 'bg-secondary'}`} style={{
-                      width: `${skill.level}%`
-                    }}></div>
+                          <div className={`h-2 rounded-full transition-all duration-500 group-hover:shadow-neon ${
+                            skill.level === "Advanced" ? 'bg-accent' : 
+                            skill.level === "Intermediate" ? 'bg-primary' : 
+                            'bg-secondary'
+                          }`} style={{
+                            width: getLevelWidth(skill.level)
+                          }}></div>
                         </div>
                       </div>)}
                   </div>
