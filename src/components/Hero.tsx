@@ -45,9 +45,7 @@ const Hero = () => {
                 </div>
 
                 {/* Title/Role */}
-                <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
-                  Full-Stack Developer & AI Enthusiast
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">Full-Stack Developer</h2>
 
                 {/* Description */}
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
