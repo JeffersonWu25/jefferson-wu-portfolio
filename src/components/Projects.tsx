@@ -1,14 +1,9 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Github, ExternalLink, Trophy, Search, Chrome, Leaf } from "lucide-react";
 
 const Projects = () => {
-  const [selectedId, setSelectedId] = useState("course-search");
-  const [hoverId, setHoverId] = useState<string | null>(null);
-  
   const projects = [
     {
       id: "course-search",
@@ -19,9 +14,7 @@ const Projects = () => {
       achievements: ["🏆 Hackathon Overall Winner", "10,000+ Reviews Processed"],
       github: "https://github.com/JeffersonWu25/course-search",
       demo: "#",
-      gradient: "bg-gradient-primary",
-      previewImage: "/previews/course-search.png",
-      previewVideo: "/previews/course-search.mp4"
+      gradient: "bg-gradient-primary"
     },
     {
       id: "ai-assistant",
@@ -32,9 +25,7 @@ const Projects = () => {
       achievements: ["🤖 AI-Powered", "Multimodal Capabilities"],
       github: "https://github.com/JeffersonWu25/ai-assistant",
       demo: "#",
-      gradient: "bg-gradient-secondary",
-      previewImage: "/previews/ai-assistant.png",
-      previewVideo: "/previews/ai-assistant.mp4"
+      gradient: "bg-gradient-secondary"
     },
     {
       id: "farmconnect",
@@ -45,14 +36,9 @@ const Projects = () => {
       achievements: ["🏆 Hackathon Overall Winner", "♻️ Sustainability Focus"],
       github: "https://github.com/JeffersonWu25/farmconnect",
       demo: "#",
-      gradient: "bg-gradient-card",
-      previewImage: "/previews/farmconnect.png",
-      previewVideo: "/previews/farmconnect.mp4"
+      gradient: "bg-gradient-card"
     }
   ];
-
-  const activeId = hoverId || selectedId;
-  const activeProject = projects.find(p => p.id === activeId) || projects[0];
 
   return (
     <section id="projects" className="py-20 bg-background">
@@ -70,54 +56,15 @@ const Projects = () => {
             </p>
           </div>
 
-          {/* Project Preview */}
-          <div className="mb-12">
-            <Card className="overflow-hidden bg-surface-elevated border-border">
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-4 text-center">
-                  {activeProject.title} - Live Demo
-                </h3>
-                <AspectRatio ratio={16 / 9}>
-                  <img
-                    src={activeProject.previewImage}
-                    alt={`${activeProject.title} demo`}
-                    className="w-full h-full object-cover rounded-lg"
-                    onError={(e) => {
-                      e.currentTarget.src = "/placeholder.svg";
-                    }}
-                  />
-                </AspectRatio>
-              </div>
-            </Card>
-          </div>
-
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => {
-              const isSelected = selectedId === project.id;
-              const isActive = activeId === project.id;
-              
-              return (
-                <Card 
-                  key={project.id}
-                  className={`group relative overflow-hidden bg-gradient-card border-border hover:border-primary/40 transition-all duration-300 hover:shadow-neon hover:-translate-y-2 cursor-pointer ${
-                    index === 0 ? 'md:col-span-2 lg:col-span-1' : ''
-                  } ${isActive ? 'border-primary/50' : ''} ${isSelected ? 'ring-1 ring-primary' : ''}`}
-                  onMouseEnter={() => setHoverId(project.id)}
-                  onMouseLeave={() => setHoverId(null)}
-                  onFocus={() => setHoverId(project.id)}
-                  onBlur={() => setHoverId(null)}
-                  onClick={() => setSelectedId(project.id)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setSelectedId(project.id);
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-selected={isSelected}
-                >
+            {projects.map((project, index) => (
+              <Card 
+                key={project.id}
+                className={`group relative overflow-hidden bg-gradient-card border-border hover:border-primary/40 transition-all duration-300 hover:shadow-neon hover:-translate-y-2 ${
+                  index === 0 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
                 {/* Gradient Overlay */}
                 <div className={`absolute inset-0 ${project.gradient} opacity-5 group-hover:opacity-10 transition-opacity`}></div>
                 
@@ -191,8 +138,7 @@ const Projects = () => {
                 {/* Floating Decoration */}
                 <div className="absolute top-4 right-4 w-20 h-20 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors"></div>
               </Card>
-              );
-            })}
+            ))}
           </div>
 
           {/* View More Button */}
