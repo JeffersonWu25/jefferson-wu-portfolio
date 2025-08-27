@@ -90,15 +90,29 @@ const Hero = () => {
 
           {/* Action Buttons */}
           {isTypingDone && <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in mt-12">
-              <Button size="lg" className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-gradient-primary hover:shadow-neon-lg transition-smooth font-semibold"
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <ExternalLink className="mr-2 h-5 w-5" />
                 View My Work
               </Button>
-              <Button variant="outline" size="lg" className="border-primary/30 hover:border-primary hover:bg-primary/10 hover:shadow-neon transition-smooth">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-primary/30 hover:border-primary hover:bg-primary/10 hover:shadow-neon transition-smooth"
+                onClick={() => window.open('https://github.com/JeffersonWu25', '_blank')}
+              >
                 <Github className="mr-2 h-5 w-5" />
                 GitHub
               </Button>
-              <Button variant="outline" size="lg" className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth"
+                onClick={() => window.open('https://www.linkedin.com/in/jwu6/', '_blank')}
+              >
                 <Linkedin className="mr-2 h-5 w-5" />
                 LinkedIn
               </Button>

@@ -13,7 +13,8 @@ const Projects = () => {
       icon: <Search className="h-6 w-6" />,
       tech: ["React", "Supabase", "OCR", "Gemini", "TypeScript"],
       achievements: ["🏆 Hackathon Overall Winner", "10,000+ Reviews Processed"],
-      github: "https://github.com/JeffersonWu25/course-search",
+      github: "https://github.com/JeffersonWu25/Search-CTECs",
+      demo: "https://search-ctecs.lovable.app",
       demoVideo: "/demo-course-search.mp4", // Replace with actual video/gif path
       gradient: "bg-gradient-primary"
     },
@@ -24,7 +25,8 @@ const Projects = () => {
       icon: <Chrome className="h-6 w-6" />,
       tech: ["Chrome Extension", "GPT-4 Vision", "FastAPI", "JavaScript"],
       achievements: ["🤖 AI-Powered", "Multimodal Capabilities"],
-      github: "https://github.com/JeffersonWu25/ai-assistant",
+      github: "https://github.com/JeffersonWu25/play-cards",
+      demo: "#",
       demoVideo: "/demo-ai-assistant.mp4", // Replace with actual video/gif path
       gradient: "bg-gradient-secondary"
     },
@@ -35,7 +37,8 @@ const Projects = () => {
       icon: <Leaf className="h-6 w-6" />,
       tech: ["React", "Supabase", "Node.js", "PostgreSQL"],
       achievements: ["🏆 Hackathon Overall Winner", "♻️ Sustainability Focus"],
-      github: "https://github.com/JeffersonWu25/farmconnect",
+      github: "https://github.com/JeffersonWu25/food-waste-marketplace",
+      demo: "#",
       demoVideo: "/demo-farmconnect.mp4", // Replace with actual video/gif path
       gradient: "bg-gradient-card"
     }
@@ -171,6 +174,10 @@ const Projects = () => {
                       size="sm" 
                       variant="outline"
                       className="flex-1 border-primary/30 hover:border-primary hover:bg-primary/10 transition-smooth"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(project.github, '_blank');
+                      }}
                     >
                       <Github className="mr-2 h-4 w-4" />
                       Code
@@ -178,6 +185,13 @@ const Projects = () => {
                     <Button 
                       size="sm"
                       className="flex-1 bg-primary/20 hover:bg-primary/30 transition-smooth"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (project.demo !== '#') {
+                          window.open(project.demo, '_blank');
+                        }
+                      }}
+                      disabled={project.demo === '#'}
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Demo
@@ -197,6 +211,7 @@ const Projects = () => {
               size="lg"
               variant="outline"
               className="border-secondary/30 hover:border-secondary hover:bg-secondary/10 transition-smooth"
+              onClick={() => window.open('https://github.com/JeffersonWu25', '_blank')}
             >
               <Github className="mr-2 h-5 w-5" />
               View All Projects on GitHub
