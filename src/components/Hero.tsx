@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, ExternalLink } from "lucide-react";
+import { Github, Linkedin, ExternalLink, GraduationCap, Calendar } from "lucide-react";
 
 const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
@@ -26,37 +26,60 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-gradient-hero particles relative flex items-center justify-center">
-      <div className="container mx-auto px-6 text-center z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Terminal Window */}
-          <div className="bg-surface-elevated rounded-lg border border-muted shadow-card mb-8 mx-auto max-w-3xl">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-muted">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <span className="ml-4 text-sm text-muted-foreground font-mono">~/portfolio</span>
-            </div>
-            <div className="p-6 text-left">
-              <div className="font-mono text-primary mb-2">$ whoami</div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-                <span className="font-mono text-foreground">
-                  {displayedText}
-                  {!isTypingDone && <span className="typing-cursor"></span>}
-                </span>
-              </h1>
-              
-              {isTypingDone && (
-                <div className="space-y-3 animate-fade-in">
-                  <div className="font-mono text-primary">$ cat about.txt</div>
-                  <p className="text-lg md:text-xl text-muted-foreground font-mono leading-relaxed">
-                    Computer Science @ Northwestern University<br />
-                    Hackathon Winner • AI Enthusiast • Full-Stack Developer<br />
-                    Building impactful software with cutting-edge technology
-                  </p>
+    <section className="min-h-screen bg-gradient-hero particles relative flex items-center justify-center py-20">
+      <div className="container mx-auto px-6 z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Main Hero Content */}
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
+              <span className="text-foreground">
+                {displayedText}
+                {!isTypingDone && <span className="typing-cursor"></span>}
+              </span>
+            </h1>
+            
+            {isTypingDone && (
+              <div className="space-y-4 animate-fade-in max-w-3xl mx-auto">
+                {/* Education Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-4">
+                  <GraduationCap className="h-5 w-5 text-primary" />
+                  <span className="text-primary font-semibold">Northwestern University</span>
+                  <span className="text-muted-foreground">•</span>
+                  <span className="text-muted-foreground flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    Class of 2027
+                  </span>
                 </div>
-              )}
-            </div>
+
+                {/* Title/Role */}
+                <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
+                  Full-Stack Developer & AI Enthusiast
+                </h2>
+
+                {/* Description */}
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                  Computer Science student passionate about creating innovative solutions that make a real impact. 
+                  Hackathon winner specializing in React, Node.js, Python, and AI integration. 
+                  Building production applications serving thousands of users.
+                </p>
+
+                {/* Quick Stats */}
+                <div className="flex justify-center gap-8 pt-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary">2+</div>
+                    <div className="text-sm text-muted-foreground">Hackathon Wins</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-secondary">25K+</div>
+                    <div className="text-sm text-muted-foreground">Users Served</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">85%</div>
+                    <div className="text-sm text-muted-foreground">Efficiency Boost</div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Action Buttons */}
